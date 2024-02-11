@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 16px;
+}
+
+.flex {
+  display: flex;
+
+  &-col {
+    flex-direction: column;
+  }
+  &-jc-cnt {
+    justify-content: center;
+  }
+  &-al-cnt {
+    align-items: center;
+  }
+  &-js-al-cnt {
+    justify-content: center;
+    align-items: center;
+  }
+  &-js-flxend-al-cnt {
+    justify-content: flex-end;
+    align-items: center;
+  }
+  &-js-spbtw-al-cnt {
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+input {
+  display: block;
+  height: 2.5rem;
+  border: 1px solid $Pastel-blue;
+  padding: 0.875rem;
+  width: 100%;
+  min-width: 18.25rem;
+  outline: none;
+  margin-top: 0.475rem;
+  font-size: 0.925rem;
+  color: $Marine-blue;
+
+  &:focus {
+    outline: 1px solid $Purplish-blue;
+  }
+
+  @include breakpoint-up(medium) {
+    height: 3.25rem;
+    border: 1.5px solid $Pastel-blue;
+    margin-top: 0.625rem;
+    font-size: 1.125rem;
+  }
+}

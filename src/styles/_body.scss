@@ -1,0 +1,260 @@
+.circle {
+  border: 1px solid $White;
+  height: 2.375rem;
+  width: 2.375rem;
+  border-radius: 100%;
+  color: $White;
+  padding: 1.375rem;
+  cursor: pointer;
+
+  &.active {
+    background: $Light-blue;
+    border: $Light-blue;
+    color: $Marine-blue;
+  }
+}
+
+.step {
+  gap: 1rem;
+}
+
+.step-desc {
+  color: $Cool-gray;
+  font-size: 0.725rem;
+  margin-left: 1rem;
+  cursor: pointer;
+
+  span {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: $Light-gray;
+    margin-top: 0.5rem;
+  }
+}
+
+.nav-status {
+  gap: 1rem;
+
+  @include breakpoint-up(medium) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.25rem;
+    width: 12rem;
+  }
+}
+
+.form-nav {
+  grid-area: navbar;
+  background-image: url("../assets/images/bg-sidebar-mobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 10rem;
+
+  @include breakpoint-up(medium) {
+    background-image: url("../assets/images/bg-sidebar-desktop.svg");
+    height: 46.5rem;
+    width: 18.25rem;
+    border-radius: 0.675rem;
+    padding: 3.125rem 3rem;
+    justify-content: start;
+    align-items: flex-start;
+  }
+}
+
+.form-body {
+  form {
+    padding: 2.125rem 1.75rem;
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
+    // border: 1px solid magenta;
+    border-radius: 0.875rem;
+    box-shadow: 0 0 2rem $Light-gray;
+    gap: 1rem;
+
+    .form-desc {
+      width: 100%;
+      min-width: 18rem;
+      h1 {
+        font-size: 1.75rem;
+        color: $Marine-blue;
+        margin-bottom: 1.125rem;
+
+        @include breakpoint-up(medium) {
+          font-size: 2.125rem;
+        }
+      }
+      p {
+        font-size: 1rem;
+        color: $Cool-gray;
+        font-weight: 500;
+
+        // @include breakpoint-up(medium) {
+        //   font-size: 1.125rem;
+        // }
+      }
+    }
+
+    label {
+      font-size: 0.875rem;
+      color: $Marine-blue;
+
+      @include breakpoint-up(medium) {
+        font-size: 1rem;
+      }
+    }
+
+    @include breakpoint-up(medium) {
+      gap: 2.5rem;
+      padding: 3.125rem 6.25rem 3rem 6.25rem;
+      max-width: 40.75rem;
+      box-shadow: none;
+    }
+  }
+}
+
+.btn-display {
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  min-width: 18rem;
+  height: 9.5rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint-up(medium) {
+    flex-direction: row;
+    // border: 1px solid magenta;
+    border-radius: 0.875rem;
+    box-shadow: 0 0 2rem $Light-gray;
+    width: 100%;
+    max-width: 58rem;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+  }
+}
+
+// App-main-grid for nav, body, and footerBtn;
+.main-grid {
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr auto auto;
+  grid-template-areas:
+    "navbar"
+    "body"
+    "btn";
+
+  @include breakpoint-up(medium) {
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+      "navbar body"
+      "navbar btn";
+  }
+}
+
+.step-body {
+  grid-area: body;
+  border: 2px solid magenta;
+}
+
+.footer-btn {
+  grid-area: btn;
+  height: 4.125rem;
+  padding: 0 1.5rem;
+  border: 2px solid magenta;
+
+  @include breakpoint-up(large) {
+    padding: 0 6.25rem;
+  }
+}
+
+//  Styles for button;
+.next-btn {
+  position: absolute;
+  right: 1.5rem;
+  width: 6.25rem;
+  height: 2.5rem;
+  border-radius: 0.265rem;
+  border: none;
+  color: $White;
+  background: $Marine-blue;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+
+  &:active {
+    transform: translate(1px, 1px);
+  }
+
+  &:hover {
+    background: $Purplish-blue;
+  }
+
+  @include breakpoint-up(medium) {
+    width: 7.75rem;
+    height: 3.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+.back-btn {
+  color: $Cool-gray;
+  border: none;
+  cursor: pointer;
+  transition: all 100ms ease-in-out;
+  background: none;
+
+  &:active,
+  &:hover {
+    color: $Marine-blue;
+  }
+
+  @include breakpoint-up(medium) {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+//
+// New added styles
+//
+
+// .nav-container {
+//   background-image: url("../assets/images/bg-sidebar-mobile.svg");
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 10rem;
+//   border: 2px solid magenta;
+
+//   @include breakpoint-up(medium) {
+//     background-image: url("../assets/images/bg-sidebar-desktop.svg");
+//     height: 46.5rem;
+//     width: 17.25rem;
+//     border-radius: 0.675rem;
+//     padding: 3.125rem 3rem;
+//     justify-content: start;
+//     align-items: flex-start;
+//   }
+// }
+
+// .step-container {
+//   gap: 2rem;
+
+//   @include breakpoint-up(medium) {
+//     flex-direction: column;
+//   }
+// }
+
+// .step-desc {
+//   @include breakpoint-down(medium) {
+//     display: none;
+//   }
+
+//   @include breakpoint-up(medium) {
+//     display: flex;
+//   }
+// }
