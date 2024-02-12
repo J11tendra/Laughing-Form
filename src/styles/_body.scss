@@ -158,7 +158,6 @@
 
 .step-body {
   grid-area: body;
-  border: 2px solid magenta;
 }
 
 .footer-btn {
@@ -258,3 +257,28 @@
 //     display: flex;
 //   }
 // }
+
+.success-container {
+  gap: 1.5rem;
+  height: 100%;
+  border: 2px solid black;
+  border-radius: 1rem;
+  max-width: 21.75rem;
+  width: 100%;
+  padding: 5.5rem 2.5rem;
+  text-align: center;
+}
+
+.success-img {
+  height: 3.75rem;
+  width: 3.75rem;
+}
+.success-head {
+  color: $Marine-blue;
+  font-size: 2rem;
+}
+
+.success-para {
+  margin-top: -0.625rem;
+  color: $Cool-gray;
+}

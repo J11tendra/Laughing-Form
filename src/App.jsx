@@ -14,18 +14,18 @@ import ButtonBottom from "./components/ButtonBottom";
 export default function App() {
   return (
     <main className="main-grid grid">
-      <ContextProvider>
-        <Navbar />
-        <BrowserRouter>
+      <BrowserRouter>
+        <ContextProvider>
+          <Navbar />
           <Routes>
-            <Route path="/" element={<StepOne />} />
+            <Route path="/step-1" element={<StepOne />} />
             <Route path="/step-2" element={<StepTwo />} />
             <Route path="/step-3" element={<StepThree />} />
             <Route path="/step-4" element={<StepFour />} />
           </Routes>
-        </BrowserRouter>
-        <ButtonBottom />
-      </ContextProvider>
+          <ButtonBottom />
+        </ContextProvider>
+      </BrowserRouter>
     </main>
   );
 }

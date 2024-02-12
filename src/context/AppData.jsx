@@ -1,7 +1,7 @@
 import React, { useState, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AppContext = createContext();
-
 export const ContextProvider = ({ children }) => {
   const [pageData, setPageData] = React.useState([
     {
@@ -30,27 +30,27 @@ export const ContextProvider = ({ children }) => {
     },
   ]);
 
+  const navigate = useNavigate();
+
   // Current Active Page;
-  const [activePage, setActivePage] = useState(
-    1 /*() => {
-    return pageData.findIndex((object) => object.isActive) + 1;
-  }*/
-  );
+  const [activePage, setActivePage] = useState(1);
 
   // handle Next-Button-Click;
   function handleNextButtonClick() {
-    // let nextId = pageData.findIndex((object) => object.isActive) + 2;
     let nextId = activePage + 1;
-    console.log(nextId);
-    handleNavbarClick(nextId);
-    console.log(nextId);
+
+    if (nextId <= pageData.length) {
+      handleNavbarClick(nextId);
+    }
   }
 
   // handle Prev-Button-Click;
   function handlePrevButtonClick() {
-    // let PrevId = activeState.findIndex((object) => object.isActive)
     let prevId = activePage - 1;
-    console.log(`PrevId: ${prevId}`);
+
+    if (prevId >= 1) {
+      handleNavbarClick(prevId);
+    }
   }
 
   // handle Navbar -Click;
@@ -60,6 +60,10 @@ export const ContextProvider = ({ children }) => {
     });
     setPageData(transformedArray);
     setActivePage(transformedArray.findIndex((object) => object.isActive) + 1);
+
+    navigate(
+      `/step-${transformedArray.findIndex((object) => object.isActive) + 1}`
+    );
   }
 
   return (
@@ -67,6 +71,7 @@ export const ContextProvider = ({ children }) => {
       value={{
         pageData,
         activePage,
+        navigate,
         handleNextButtonClick,
         handlePrevButtonClick,
         handleNavbarClick,
