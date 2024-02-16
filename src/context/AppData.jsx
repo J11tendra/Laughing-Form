@@ -30,10 +30,35 @@ export const ContextProvider = ({ children }) => {
     },
   ]);
 
+  // Manage Thank You component;
+  const [showThankYou, setShowThankYou] = useState(false);
+
+  // managing routes;
   const navigate = useNavigate();
 
   // Current Active Page;
   const [activePage, setActivePage] = useState(1);
+
+  // All user data;
+  const [formData, setFormData] = useState({
+    name: "Jitendra",
+    email: "email",
+    phone: "9356565838",
+    plan: {
+      arcade: true,
+      advanced: true,
+      pro: false,
+    },
+    planDuration: {
+      monthly: true,
+      yearly: false,
+    },
+    addOns: {
+      onlineService: true,
+      largerStorage: false,
+      customizableProfile: true,
+    },
+  });
 
   // handle Next-Button-Click;
   function handleNextButtonClick() {
@@ -53,6 +78,11 @@ export const ContextProvider = ({ children }) => {
     }
   }
 
+  // handle Confirm-Button-Click to toggle Thank You Comp;
+  function handleConfirmButtonClick() {
+    setShowThankYou((prevValue) => !prevValue);
+  }
+
   // handle Navbar -Click;
   function handleNavbarClick(id) {
     const transformedArray = pageData.map((object) => {
@@ -66,12 +96,28 @@ export const ContextProvider = ({ children }) => {
     );
   }
 
+  // handle form data change;
+  function handleFormChange(e) {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+    console.log(formData.name);
+    console.log(formData.phone);
+    console.log(formData.email);
+  }
+
   return (
     <AppContext.Provider
       value={{
         pageData,
         activePage,
+        showThankYou,
+        formData,
+        handleFormChange,
         navigate,
+        handleConfirmButtonClick,
         handleNextButtonClick,
         handlePrevButtonClick,
         handleNavbarClick,
