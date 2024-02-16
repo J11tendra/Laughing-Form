@@ -62,80 +62,12 @@
   }
 }
 
-.form-body {
-  form {
-    padding: 2.125rem 1.75rem;
-    width: 100%;
-    max-width: 30rem;
-    margin: 0 auto;
-    // border: 1px solid magenta;
-    border-radius: 0.875rem;
-    box-shadow: 0 0 2rem $Light-gray;
-    gap: 1rem;
-
-    .form-desc {
-      width: 100%;
-      min-width: 18rem;
-      h1 {
-        font-size: 1.75rem;
-        color: $Marine-blue;
-        margin-bottom: 1.125rem;
-
-        @include breakpoint-up(medium) {
-          font-size: 2.125rem;
-        }
-      }
-      p {
-        font-size: 1rem;
-        color: $Cool-gray;
-        font-weight: 500;
-
-        // @include breakpoint-up(medium) {
-        //   font-size: 1.125rem;
-        // }
-      }
-    }
-
-    label {
-      font-size: 0.875rem;
-      color: $Marine-blue;
-
-      @include breakpoint-up(medium) {
-        font-size: 1rem;
-      }
-    }
-
-    @include breakpoint-up(medium) {
-      gap: 2.5rem;
-      padding: 3.125rem 6.25rem 3rem 6.25rem;
-      max-width: 40.75rem;
-      box-shadow: none;
-    }
-  }
-}
-
 .btn-display {
   justify-content: flex-end;
   align-items: flex-end;
   width: 100%;
   min-width: 18rem;
   height: 9.5rem;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-
-  @include breakpoint-up(medium) {
-    flex-direction: row;
-    // border: 1px solid magenta;
-    border-radius: 0.875rem;
-    box-shadow: 0 0 2rem $Light-gray;
-    width: 100%;
-    max-width: 58rem;
-    margin: 0 auto;
-    padding: 0.75rem 1rem;
-  }
 }
 
 // App-main-grid for nav, body, and footerBtn;
@@ -154,20 +86,42 @@
       "navbar body"
       "navbar btn";
   }
+
+  @include breakpoint-up(large) {
+    margin: 2rem;
+    padding: 2rem;
+    box-shadow: 0 0 41px -12px $Cool-gray;
+    border-radius: 1rem;
+  }
 }
 
 .step-body {
+  background: $Magnolia;
+  padding: 0 2rem 2rem 2rem;
   grid-area: body;
+
+  @include breakpoint-up(medium) {
+    padding: 0;
+  }
 }
 
 .footer-btn {
   grid-area: btn;
-  height: 4.125rem;
+  position: relative;
+  width: 100%;
+  min-width: 20.75rem;
+  background-color: $Alabaster;
+  height: 4.5rem;
   padding: 0 1.5rem;
-  border: 2px solid magenta;
+
+  @include breakpoint-up(medium) {
+    padding: 0 6.25rem;
+    max-width: 40rem;
+  }
 
   @include breakpoint-up(large) {
-    padding: 0 6.25rem;
+    // padding: 0 6.25rem;
+    // max-width: 43rem;
   }
 }
 
@@ -218,67 +172,147 @@
   }
 }
 
-//
-// New added styles
-//
+// Step-1 component;
+.form-container {
+  background: $White;
+  // gap: 1.5rem;
+  height: 100%;
+  box-shadow: 0 0 41px -12px $Cool-gray;
+  border-radius: 1rem;
+  padding: 4.5rem 2.5rem;
 
-// .nav-container {
-//   background-image: url("../assets/images/bg-sidebar-mobile.svg");
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   height: 10rem;
-//   border: 2px solid magenta;
+  @include breakpoint-up(medium) {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
 
-//   @include breakpoint-up(medium) {
-//     background-image: url("../assets/images/bg-sidebar-desktop.svg");
-//     height: 46.5rem;
-//     width: 17.25rem;
-//     border-radius: 0.675rem;
-//     padding: 3.125rem 3rem;
-//     justify-content: start;
-//     align-items: flex-start;
-//   }
-// }
+.text-input {
+  height: 2.125rem;
+  width: 100%;
+  min-width: 13.75rem;
+  border: 1.5px solid $Light-gray;
+  border-radius: 0.275rem;
+  color: $Cool-gray;
+  font-size: 1rem;
+  font-weight: $light;
+  padding: 1rem;
 
-// .step-container {
-//   gap: 2rem;
+  &:active,
+  &:focus {
+    border: 1.5px solid $Purplish-blue;
+  }
 
-//   @include breakpoint-up(medium) {
-//     flex-direction: column;
-//   }
-// }
+  @include breakpoint-up(medium) {
+    font-size: 1.125rem;
+    border: 1.75px solid $Light-gray;
+    height: 2.5rem;
+    max-width: 31.125rem;
+  }
 
-// .step-desc {
-//   @include breakpoint-down(medium) {
-//     display: none;
-//   }
+  @include breakpoint-up(large) {
+    font-size: 1.25rem;
+    height: 3.25rem;
+    max-width: 40rem;
+  }
+}
 
-//   @include breakpoint-up(medium) {
-//     display: flex;
-//   }
-// }
+.form-align {
+  gap: 1.75rem;
 
+  @include breakpoint-up(large) {
+    gap: 2rem;
+  }
+}
+
+.stp-one-input-container {
+  gap: 0.5rem;
+
+  @include breakpoint-up(medium) {
+    gap: 0.725rem;
+  }
+}
+
+// Thank you component;
 .success-container {
+  background: $White;
   gap: 1.5rem;
   height: 100%;
-  border: 2px solid black;
+  box-shadow: 0 0 41px -12px $Cool-gray;
   border-radius: 1rem;
-  max-width: 21.75rem;
-  width: 100%;
   padding: 5.5rem 2.5rem;
   text-align: center;
+
+  @include breakpoint-up(medium) {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  @include breakpoint-up(large) {
+    gap: 2.125rem;
+  }
 }
 
 .success-img {
   height: 3.75rem;
   width: 3.75rem;
+
+  @include breakpoint-up(medium) {
+    height: 5.125rem;
+    width: 5.125rem;
+  }
 }
+
 .success-head {
   color: $Marine-blue;
   font-size: 2rem;
+  font-weight: $bold;
+
+  @include breakpoint-up(medium) {
+    font-size: 2.25rem;
+  }
 }
 
 .success-para {
+  max-width: 21.75rem;
+  width: 100%;
   margin-top: -0.625rem;
   color: $Cool-gray;
+
+  @include breakpoint-up(medium) {
+    margin-top: -0.875rem;
+    max-width: 38rem;
+    font-size: 1.25rem;
+    font-weight: $regular;
+  }
+}
+
+// Personal-Info comp;
+.form-head {
+  color: $Marine-blue;
+  font-size: 1.75rem;
+  font-weight: $bold;
+
+  @include breakpoint-up(medium) {
+    font-size: 1.75rem;
+  }
+
+  @include breakpoint-up(large) {
+    font-size: 2.25rem;
+  }
+}
+
+.form-para {
+  color: $Cool-gray;
+  margin-top: -1rem;
+
+  @include breakpoint-up(medium) {
+    font-size: 1.125rem;
+  }
+
+  @include breakpoint-up(large) {
+    font-size: 1.25rem;
+  }
 }

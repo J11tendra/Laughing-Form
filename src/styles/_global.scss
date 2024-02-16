@@ -7,6 +7,13 @@
 body {
   font-family: "Ubuntu", sans-serif;
   font-size: 16px;
+  font-weight: $regular;
+
+  @include breakpoint-up(large) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .flex {
@@ -15,7 +22,7 @@ body {
   &-col {
     flex-direction: column;
   }
-  &-jc-cnt {
+  &-js-cnt {
     justify-content: center;
   }
   &-al-cnt {
@@ -39,26 +46,41 @@ body {
   display: grid;
 }
 
-input {
-  display: block;
-  height: 2.5rem;
-  border: 1px solid $Pastel-blue;
-  padding: 0.875rem;
-  width: 100%;
-  min-width: 18.25rem;
-  outline: none;
-  margin-top: 0.475rem;
-  font-size: 0.925rem;
-  color: $Marine-blue;
+// input {
+//   display: block;
+//   height: 2.5rem;
+//   border: 1px solid $Pastel-blue;
+//   padding: 0.875rem;
+//   width: 100%;
+//   min-width: 18.25rem;
+//   outline: none;
+//   margin-top: 0.475rem;
+//   font-size: 0.925rem;
+//   color: $Marine-blue;
 
-  &:focus {
-    outline: 1px solid $Purplish-blue;
-  }
+//   &:focus {
+//     outline: 1px solid $Purplish-blue;
+//   }
+
+//   @include breakpoint-up(medium) {
+//     height: 3.25rem;
+//     border: 1.5px solid $Pastel-blue;
+//     margin-top: 0.625rem;
+//     font-size: 1.125rem;
+//   }
+// }
+
+label {
+  display: block;
+  font-size: 0.825rem;
+  color: $Marine-blue;
+  font-weight: $regular;
 
   @include breakpoint-up(medium) {
-    height: 3.25rem;
-    border: 1.5px solid $Pastel-blue;
-    margin-top: 0.625rem;
     font-size: 1.125rem;
+  }
+
+  @include breakpoint-up(large) {
+    font-size: 1.25rem;
   }
 }
