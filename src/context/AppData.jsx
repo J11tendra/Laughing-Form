@@ -44,15 +44,8 @@ export const ContextProvider = ({ children }) => {
     name: "Jitendra",
     email: "email",
     phone: "9356565838",
-    plan: {
-      arcade: true,
-      advanced: true,
-      pro: false,
-    },
-    planDuration: {
-      monthly: true,
-      yearly: false,
-    },
+    plan: "",
+    planDuration: "Monthly",
     addOns: {
       onlineService: true,
       largerStorage: false,
@@ -98,14 +91,21 @@ export const ContextProvider = ({ children }) => {
 
   // handle form data change;
   function handleFormChange(e) {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [id]: value,
+      [name]: value,
     }));
-    console.log(formData.name);
-    console.log(formData.phone);
-    console.log(formData.email);
+    console.log(formData.planDuration);
+    console.log(formData.planDuration);
+  }
+
+  // handle Toggle status;
+  function handleToggleStatus() {
+    setFormData((prevData) => ({
+      ...prevData,
+      planDuration: prevData.planDuration === "Monthly" ? "Yearly" : "Monthly",
+    }));
   }
 
   return (
@@ -115,6 +115,7 @@ export const ContextProvider = ({ children }) => {
         activePage,
         showThankYou,
         formData,
+        handleToggleStatus,
         handleFormChange,
         navigate,
         handleConfirmButtonClick,
