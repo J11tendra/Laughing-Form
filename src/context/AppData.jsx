@@ -96,8 +96,6 @@ export const ContextProvider = ({ children }) => {
       ...prevData,
       [name]: value,
     }));
-    console.log(formData.planDuration);
-    console.log(formData.planDuration);
   }
 
   // handle Toggle status;
@@ -108,6 +106,24 @@ export const ContextProvider = ({ children }) => {
     }));
   }
 
+  // handle Add-ons change;
+  function handleAddOnChange(e) {
+    const { name, checked } = e.target;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      addOns: {
+        ...prevData.addOns,
+        [name]: checked,
+      },
+    }));
+
+    () => {
+      console.log(formData.addOns);
+      console.log("Label is clicked now");
+    };
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -115,6 +131,7 @@ export const ContextProvider = ({ children }) => {
         activePage,
         showThankYou,
         formData,
+        handleAddOnChange,
         handleToggleStatus,
         handleFormChange,
         navigate,

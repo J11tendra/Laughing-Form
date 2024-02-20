@@ -436,3 +436,72 @@
     transform: translateX(1.125rem);
   }
 }
+
+// Step-three component;
+.stp-three-input-container {
+  gap: 1rem;
+
+  @include breakpoint-up(large) {
+    gap: 1.5rem;
+  }
+}
+
+.step-three-label-text {
+  height: 100%;
+  width: 100%;
+  min-width: 15rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid $Cool-gray;
+  gap: 1rem;
+  cursor: pointer;
+  
+  @include breakpoint-up(large) {
+    max-width: 28.5rem;
+    padding: 1.375rem;
+  }
+
+  &.active {
+    background: $Magnolia;
+    border: 2px solid $Purplish-blue;
+  }
+  
+  input[type="checkbox"] {
+    height: 1.375rem;
+    width: 1.375rem;
+    cursor: pointer;
+  }
+
+  // label-price;
+  span {
+    font-size: 0.875rem;
+    font-weight: $medium;
+    color: $Purplish-blue;
+
+    @include breakpoint-up(large) {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.label-head {
+  h3 {
+    font-size: 1.125rem;
+    font-weight: $medium;
+
+    @include breakpoint-up(large) {
+      font-size: 1.375rem;
+    }
+  }
+
+  p {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.875rem;
+    color: $Cool-gray;
+    font-weight: $regular;
+
+    @include breakpoint-up(large) {
+      font-size: 1.125rem;
+    }
+  }
+}
