@@ -194,7 +194,8 @@
   min-width: 13.75rem;
   border: 1.5px solid $Light-gray;
   border-radius: 0.275rem;
-  color: $Cool-gray;
+  // color: $Cool-gray;
+  color: $Marine-blue;
   font-size: 1rem;
   font-weight: $light;
   padding: 1rem;
@@ -455,7 +456,7 @@
   border: 1px solid $Cool-gray;
   gap: 1rem;
   cursor: pointer;
-  
+
   @include breakpoint-up(large) {
     max-width: 28.5rem;
     padding: 1.375rem;
@@ -465,7 +466,7 @@
     background: $Magnolia;
     border: 2px solid $Purplish-blue;
   }
-  
+
   input[type="checkbox"] {
     height: 1.375rem;
     width: 1.375rem;
@@ -502,6 +503,127 @@
 
     @include breakpoint-up(large) {
       font-size: 1.125rem;
+    }
+  }
+}
+
+// Step-4 Component;
+// .summary-container {
+//   background: $White;
+//   // gap: 1.5rem;
+//   height: 100%;
+//   box-shadow: 0 0 41px -12px $Cool-gray;
+//   border-radius: 1rem;
+//   padding: 4.5rem 2.5rem;
+
+//   @include breakpoint-up(medium) {
+//     width: 100%;
+//     border-radius: 0;
+//     box-shadow: none;
+//   }
+// }
+
+// .summary-align {
+//   gap: 1.75rem;
+
+//   @include breakpoint-up(large) {
+//     gap: 2rem;
+//   }
+// }
+
+.stp-four-summary-container {
+  gap: 2rem;
+}
+
+.summary-items-container {
+  gap: 1.25rem;
+  background: $Alabaster;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  @include breakpoint-up(large) {
+    padding: 2rem;
+    gap: 2rem;
+  }
+}
+
+.summary-items-container-addons {
+  h3 {
+    font-weight: $medium;
+    font-size: 1rem;
+    color: $Cool-gray;
+
+    @include breakpoint-up(large) {
+      font-size: 1.125rem;
+    }
+  }
+
+  span {
+    font-weight: $medium;
+    font-size: 1rem;
+    color: $Marine-blue;
+
+    @include breakpoint-up(large) {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.summary-items-container-head {
+  gap: 1rem;
+
+  h3 {
+    font-size: 1.125rem;
+    color: $Marine-blue;
+    font-weight: $bold;
+
+    @include breakpoint-up(large) {
+      font-size: 1.25rem;
+    }
+
+    span {
+      display: block;
+      font-weight: $regular;
+      font-size: 1.125rem;
+      color: $Cool-gray;
+      text-decoration: underline;
+      cursor: pointer;
+
+      &:hover {
+        color: $Purplish-blue;
+      }
+
+      @include breakpoint-up(large) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  span {
+    font-weight: $bold;
+    font-size: 1.125rem;
+    color: $Marine-blue;
+  }
+}
+
+.summary-total-container {
+  h3 {
+    font-size: 1.125rem;
+    color: $Cool-gray;
+    font-weight: $regular;
+
+    @include breakpoint-up(large) {
+      font-size: 1.25rem;
+    }
+  }
+
+  span {
+    color: $Purplish-blue;
+    font-weight: $bold;
+    font-size: 1.125rem;
+
+    @include breakpoint-up(large) {
+      font-size: 1.25rem;
     }
   }
 }

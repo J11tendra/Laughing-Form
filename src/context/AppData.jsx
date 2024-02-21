@@ -41,15 +41,27 @@ export const ContextProvider = ({ children }) => {
 
   // All user data;
   const [formData, setFormData] = useState({
-    name: "Jitendra",
-    email: "email",
-    phone: "9356565838",
+    name: "",
+    email: "",
+    phone: "",
     plan: "",
     planDuration: "Monthly",
     addOns: {
-      onlineService: true,
-      largerStorage: false,
-      customizableProfile: true,
+      onlineService: {
+        title: "Online service",
+        selected: true,
+        price: 1,
+      },
+      largerStorage: {
+        title: "Larger storage",
+        selected: true,
+        price: 2,
+      },
+      customizableProfile: {
+        title: "Customizable profile",
+        selected: true,
+        price: 2,
+      },
     },
   });
 
@@ -114,7 +126,7 @@ export const ContextProvider = ({ children }) => {
       ...prevData,
       addOns: {
         ...prevData.addOns,
-        [name]: checked,
+        [name]: { ...prevData.addOns[name], selected: checked },
       },
     }));
 
@@ -123,6 +135,93 @@ export const ContextProvider = ({ children }) => {
       console.log("Label is clicked now");
     };
   }
+
+  // Calculate the plan price;
+  const calculatePlanPrice = () => {
+    const price =
+      formData.planDuration === "Monthly" && formData.plan === "Arcade"
+        ? "$9/mo"
+        : formData.planDuration === "Monthly" && formData.plan === "Arcade"
+        ? "$90/yr"
+        : formData.planDuration === "Monthly" && formData.plan === "Pro"
+        ? "$15/mo"
+        : formData.planDuration === "Monthly" && formData.plan === "Advanced"
+        ? "$12/mo"
+        : formData.planDuration === "Yearly" && formData.plan === "Arcade"
+        ? "$90/yr"
+        : formData.planDuration === "Yearly" && formData.plan === "Advanced"
+        ? "$120/yr"
+        : "$150/yr";
+    return price;
+  };
+
+  //  Calculate addon price;
+  const calculateAddOnItem = () => {
+    const items = Object.entries(formData.addOns).map(([key, addon]) => {
+      return addon.selected ? (
+        <div
+          key={key}
+          className="summary-items-container-addons flex flex-js-spbtw-al-cnt"
+        >
+          <h3>{addon.title}</h3>
+          <span>
+            {formData.planDuration === "Monthly"
+              ? `+$${addon.price}/mo
+          `
+              : `+$${addon.price * 10}/yr`}
+          </span>
+        </div>
+      ) : null;
+    });
+
+    return items;
+  };
+
+  // Calculate the total price based on selected addons;
+  const calculateTotalPrice = () => {
+    const addons = formData.addOns;
+    const addonPrices = {
+      onlineService: 1,
+      largerStorage: 2,
+      customizableProfile: 2,
+    };
+
+    const selectedAddons = Object.keys(addons).filter(
+      (addon) => addons[addon].selected
+    );
+    let totalPrice = selectedAddons.reduce(
+      (total, addon) => total + addonPrices[addon],
+      0
+    );
+    if (formData.plan === "Arcade" && formData.planDuration === "Yearly") {
+      totalPrice = `$${totalPrice * 10 + 90}/yr`;
+      return totalPrice;
+    } else if (
+      formData.plan === "Advanced" &&
+      formData.planDuration === "Yearly"
+    ) {
+      totalPrice = `$${totalPrice * 10 + 120}/yr`;
+      return totalPrice;
+    } else if (formData.plan === "Pro" && formData.planDuration === "Yearly") {
+      totalPrice = `$${totalPrice * 10 + 150}/yr`;
+      return totalPrice;
+    } else if (formData.plan === "Pro" && formData.planDuration === "Monthly") {
+      totalPrice = `$${totalPrice + 15}/mo`;
+      return totalPrice;
+    } else if (
+      formData.plan === "Advanced" &&
+      formData.planDuration === "Monthly"
+    ) {
+      totalPrice = `$${totalPrice + 12}/mo`;
+      return totalPrice;
+    } else if (
+      formData.plan === "Arcade" &&
+      formData.planDuration === "Monthly"
+    ) {
+      totalPrice = `$${totalPrice + 9}/mo`;
+      return totalPrice;
+    }
+  };
 
   return (
     <AppContext.Provider
@@ -139,6 +238,9 @@ export const ContextProvider = ({ children }) => {
         handleNextButtonClick,
         handlePrevButtonClick,
         handleNavbarClick,
+        calculateAddOnItem,
+        calculatePlanPrice,
+        calculateTotalPrice,
       }}
     >
       {children}
