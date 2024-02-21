@@ -27,7 +27,7 @@ export default function StepTwo() {
               <label
                 htmlFor="arcade"
                 className={`radio-label flex flex-al-cnt ${
-                  formData.plan === "arcade" ? "checked" : ""
+                  formData.plan === "Arcade" ? "checked" : ""
                 }`}
               >
                 <div className="radio-img">
@@ -45,7 +45,7 @@ export default function StepTwo() {
                 <input
                   type="radio"
                   name="plan"
-                  value="arcade"
+                  value="Arcade"
                   id="arcade"
                   onChange={handleFormChange}
                   className="radio-input"
@@ -54,7 +54,7 @@ export default function StepTwo() {
               <label
                 htmlFor="advanced"
                 className={`radio-label flex flex-al-cnt ${
-                  formData.plan === "advanced" ? "checked" : ""
+                  formData.plan === "Advanced" ? "checked" : ""
                 }`}
               >
                 <div className="radio-img">
@@ -72,7 +72,7 @@ export default function StepTwo() {
                 <input
                   type="radio"
                   name="plan"
-                  value="advanced"
+                  value="Advanced"
                   id="advanced"
                   onChange={handleFormChange}
                   className="radio-input"
@@ -81,7 +81,7 @@ export default function StepTwo() {
               <label
                 htmlFor="pro"
                 className={`radio-label flex flex-al-cnt ${
-                  formData.plan === "pro" ? "checked" : ""
+                  formData.plan === "Pro" ? "checked" : ""
                 }`}
               >
                 <div className="radio-img">
@@ -99,7 +99,7 @@ export default function StepTwo() {
                 <input
                   type="radio"
                   name="plan"
-                  value="pro"
+                  value="Pro"
                   id="pro"
                   onChange={handleFormChange}
                   className="radio-input"

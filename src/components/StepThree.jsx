@@ -22,13 +22,13 @@ export default function StepThree() {
               <label
                 htmlFor="onlineService"
                 className={`step-three-label-text flex flex-js-spbtw-al-cnt ${
-                  formData.addOns.onlineService ? "active" : ""
+                  formData.addOns.onlineService.selected ? "active" : ""
                 }`}
               >
                 <input
                   type="checkbox"
                   name="onlineService"
-                  checked={formData.addOns.onlineService}
+                  checked={formData.addOns.onlineService.selected}
                   onChange={(e) => {
                     handleAddOnChange(e);
                   }}
@@ -44,13 +44,13 @@ export default function StepThree() {
               <label
                 htmlFor="largerStorage"
                 className={`step-three-label-text flex flex-js-spbtw-al-cnt ${
-                  formData.addOns.largerStorage ? "active" : ""
+                  formData.addOns.largerStorage.selected ? "active" : ""
                 }`}
               >
                 <input
                   type="checkbox"
                   name="largerStorage"
-                  checked={formData.addOns.largerStorage}
+                  checked={formData.addOns.largerStorage.selected}
                   onChange={(e) => {
                     handleAddOnChange(e);
                   }}
@@ -66,13 +66,13 @@ export default function StepThree() {
               <label
                 htmlFor="customizableProfile"
                 className={`step-three-label-text flex flex-js-spbtw-al-cnt ${
-                  formData.addOns.customizableProfile ? "active" : ""
+                  formData.addOns.customizableProfile.selected ? "active" : ""
                 }`}
               >
                 <input
                   type="checkbox"
                   name="customizableProfile"
-                  checked={formData.addOns.customizableProfile}
+                  checked={formData.addOns.customizableProfile.selected}
                   onChange={(e) => {
                     handleAddOnChange(e);
                   }}
