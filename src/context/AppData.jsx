@@ -65,12 +65,70 @@ export const ContextProvider = ({ children }) => {
     },
   });
 
+  // input errors;
+  const [errors, setErrors] = useState({});
+
+  // handle form validation;
+  const validateInput = (e) => {
+    const name = e?.target?.name;
+    let isValid = true;
+    const newErrors = {};
+    const phoneRegex = /^\d{3}\d{3}\d{4}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    switch (name) {
+      // Validate phone number to be 10 digit;
+      case "phone":
+        if (!formData.phone) {
+          newErrors.phone = "Phone is required";
+          isValid = false;
+        } else if (!phoneRegex.test(formData.phone)) {
+          newErrors.phone = "Enter a valid 10-digit phone number";
+          isValid = false;
+        }
+
+      // Validate email
+      case "email":
+        if (!formData.email) {
+          newErrors.email = "Email is required";
+          isValid = false;
+        } else if (!emailRegex.test(formData.email)) {
+          newErrors.email = "Enter a valid a email address";
+          isValid = false;
+        }
+        break;
+
+      // validate both;
+      default:
+        if (!formData.email) {
+          newErrors.email = "Email is required";
+          isValid = false;
+        } else if (!emailRegex.test(formData.email)) {
+          newErrors.email = "Enter a valid a email address";
+          isValid = false;
+        }
+        if (!formData.phone) {
+          newErrors.phone = "Phone is required";
+          isValid = false;
+        } else if (!phoneRegex.test(formData.phone)) {
+          newErrors.phone = "Enter a valid 10-digit phone number";
+          isValid = false;
+        }
+        break;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
+
   // handle Next-Button-Click;
   function handleNextButtonClick() {
     let nextId = activePage + 1;
 
-    if (nextId <= pageData.length) {
-      handleNavbarClick(nextId);
+    if (validateInput()) {
+      if (nextId <= pageData.length) {
+        handleNavbarClick(nextId);
+      }
     }
   }
 
@@ -88,17 +146,22 @@ export const ContextProvider = ({ children }) => {
     setShowThankYou((prevValue) => !prevValue);
   }
 
-  // handle Navbar -Click;
+  // handle Navbar Click;
   function handleNavbarClick(id) {
-    const transformedArray = pageData.map((object) => {
-      return { ...object, isActive: object.id === id ? true : false };
-    });
-    setPageData(transformedArray);
-    setActivePage(transformedArray.findIndex((object) => object.isActive) + 1);
+    // If valid input then proceed;
+    if (validateInput()) {
+      const transformedArray = pageData.map((object) => {
+        return { ...object, isActive: object.id === id ? true : false };
+      });
+      setPageData(transformedArray);
+      setActivePage(
+        transformedArray.findIndex((object) => object.isActive) + 1
+      );
 
-    navigate(
-      `/step-${transformedArray.findIndex((object) => object.isActive) + 1}`
-    );
+      navigate(
+        `/step-${transformedArray.findIndex((object) => object.isActive) + 1}`
+      );
+    }
   }
 
   // handle form data change;
@@ -129,11 +192,6 @@ export const ContextProvider = ({ children }) => {
         [name]: { ...prevData.addOns[name], selected: checked },
       },
     }));
-
-    () => {
-      console.log(formData.addOns);
-      console.log("Label is clicked now");
-    };
   }
 
   // Calculate the plan price;
@@ -230,6 +288,8 @@ export const ContextProvider = ({ children }) => {
         activePage,
         showThankYou,
         formData,
+        errors,
+        validateInput,
         handleAddOnChange,
         handleToggleStatus,
         handleFormChange,
