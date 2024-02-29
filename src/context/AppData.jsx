@@ -44,7 +44,7 @@ export const ContextProvider = ({ children }) => {
     name: "",
     email: "",
     phone: "",
-    plan: "",
+    plan: "Arcade",
     planDuration: "Monthly",
     addOns: {
       onlineService: {
@@ -80,20 +80,20 @@ export const ContextProvider = ({ children }) => {
       // Validate phone number to be 10 digit;
       case "phone":
         if (!formData.phone) {
-          newErrors.phone = "Phone is required";
+          newErrors.phone = "required";
           isValid = false;
         } else if (!phoneRegex.test(formData.phone)) {
-          newErrors.phone = "Enter a valid 10-digit phone number";
+          newErrors.phone = "Not a valid number";
           isValid = false;
         }
 
       // Validate email
       case "email":
         if (!formData.email) {
-          newErrors.email = "Email is required";
+          newErrors.email = "required";
           isValid = false;
         } else if (!emailRegex.test(formData.email)) {
-          newErrors.email = "Enter a valid a email address";
+          newErrors.email = "Not a valid email";
           isValid = false;
         }
         break;
@@ -101,17 +101,17 @@ export const ContextProvider = ({ children }) => {
       // validate both;
       default:
         if (!formData.email) {
-          newErrors.email = "Email is required";
+          newErrors.email = "required";
           isValid = false;
         } else if (!emailRegex.test(formData.email)) {
-          newErrors.email = "Enter a valid a email address";
+          newErrors.email = "Not a valid email";
           isValid = false;
         }
         if (!formData.phone) {
-          newErrors.phone = "Phone is required";
+          newErrors.phone = "required";
           isValid = false;
         } else if (!phoneRegex.test(formData.phone)) {
-          newErrors.phone = "Enter a valid 10-digit phone number";
+          newErrors.phone = "Not a valid number";
           isValid = false;
         }
         break;
@@ -149,7 +149,7 @@ export const ContextProvider = ({ children }) => {
   // handle Navbar Click;
   function handleNavbarClick(id) {
     // If valid input then proceed;
-    if (validateInput()) {
+    if (validateInput() && !showThankYou) {
       const transformedArray = pageData.map((object) => {
         return { ...object, isActive: object.id === id ? true : false };
       });
