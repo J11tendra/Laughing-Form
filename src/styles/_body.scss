@@ -72,6 +72,7 @@
 
 // App-main-grid for nav, body, and footerBtn;
 .main-grid {
+  background: $White;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr auto auto;
   grid-template-areas:
@@ -117,11 +118,6 @@
   @include breakpoint-up(medium) {
     padding: 0 6.25rem;
     max-width: 40rem;
-  }
-
-  @include breakpoint-up(large) {
-    // padding: 0 6.25rem;
-    // max-width: 43rem;
   }
 }
 
@@ -194,7 +190,6 @@
   min-width: 13.75rem;
   border: 1.5px solid $Light-gray;
   border-radius: 0.275rem;
-  // color: $Cool-gray;
   color: $Marine-blue;
   font-size: 1rem;
   font-weight: $light;
@@ -204,7 +199,6 @@
   &:active,
   &:focus,
   &:focus-visible {
-    // outline: none;
     border: 1.5px solid $Purplish-blue;
   }
 
@@ -366,7 +360,6 @@
 
 .radio-input {
   appearance: none;
-  // display: none;
 }
 
 // radio button when checked
@@ -542,30 +535,6 @@
     }
   }
 }
-
-// Step-4 Component;
-// .summary-container {
-//   background: $White;
-//   // gap: 1.5rem;
-//   height: 100%;
-//   box-shadow: 0 0 41px -12px $Cool-gray;
-//   border-radius: 1rem;
-//   padding: 4.5rem 2.5rem;
-
-//   @include breakpoint-up(medium) {
-//     width: 100%;
-//     border-radius: 0;
-//     box-shadow: none;
-//   }
-// }
-
-// .summary-align {
-//   gap: 1.75rem;
-
-//   @include breakpoint-up(large) {
-//     gap: 2rem;
-//   }
-// }
 
 .stp-four-summary-container {
   gap: 2rem;

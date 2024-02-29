@@ -1,5 +1,4 @@
 import { useContext, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppData";
 
 export default function StepTwo() {
