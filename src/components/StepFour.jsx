@@ -28,7 +28,7 @@ export default function StepFour() {
         // Thank you component;
         <div className="success-container flex flex-col flex-js-al-cnt">
           <img
-            src="images/icon-thank-you.svg"
+            src="/icon-thank-you.svg"
             alt="success-logo"
             className="success-img"
           />

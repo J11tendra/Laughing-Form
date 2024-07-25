@@ -30,7 +30,7 @@ export default function StepTwo() {
                 }`}
               >
                 <div className="radio-img">
-                  <img src="images/icon-arcade.svg" alt="arcade" />
+                  <img src="/icon-arcade.svg" alt="arcade" />
                 </div>
                 <div className="radio-text flex flex-col">
                   <h3>Arcade</h3>
@@ -57,7 +57,7 @@ export default function StepTwo() {
                 }`}
               >
                 <div className="radio-img">
-                  <img src="images/icon-advanced.svg" alt="arcade" />
+                  <img src="/icon-advanced.svg" alt="arcade" />
                 </div>
                 <div className="radio-text flex flex-col">
                   <h3>Advanced</h3>
@@ -84,7 +84,7 @@ export default function StepTwo() {
                 }`}
               >
                 <div className="radio-img">
-                  <img src="images/icon-pro.svg" alt="arcade" />
+                  <img src="/icon-pro.svg" alt="arcade" />
                 </div>
                 <div className="radio-text flex flex-col">
                   <h3>Pro</h3>
