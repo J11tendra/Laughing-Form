@@ -40,7 +40,7 @@ export default function StepOne() {
                 <span className="input-error flex flex-js-al-cnt">
                   {errors.email}
                   <img
-                    src="public/images/icon-error.svg"
+                    src="images/icon-error.svg"
                     className="icon-input-error"
                     alt="error"
                   />
@@ -62,7 +62,7 @@ export default function StepOne() {
                 <span className="input-error flex flex-js-al-cnt">
                   {errors.phone}
                   <img
-                    src="public/images/icon-error.svg"
+                    src="images/icon-error.svg"
                     className="icon-input-error"
                     alt="error"
                   />
