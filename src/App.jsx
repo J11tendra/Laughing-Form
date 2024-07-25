@@ -22,6 +22,7 @@ export default function App() {
             <Route path="/step-2" element={<StepTwo />} />
             <Route path="/step-3" element={<StepThree />} />
             <Route path="/step-4" element={<StepFour />} />
+            <Route path="/" element={<StepOne />} />
           </Routes>
           <ButtonBottom />
         </ContextProvider>
